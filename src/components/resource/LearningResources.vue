@@ -1,5 +1,5 @@
 <template>
-        <single-resource v-for='res in resources' :key='res.id' :desc='res.desc' :title='res.title' :link="res.link"></single-resource>
+        <single-resource v-for='res in resources' :key='res.id' :desc='res.desc' :title='res.title' :link="res.link" :id='res.id'></single-resource>
 </template>
 
 

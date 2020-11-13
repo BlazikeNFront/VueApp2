@@ -45,12 +45,36 @@ export default {
     }
     },
     provide(){
-       return { resources:this.storedResource,}
+       return { 
+           resources:this.storedResource,
+           submitData:this.submitData,
+           removeResource:this.removeResource,
+           }
     },
 
     methods:{
         setSelectedTab(tab){
             this.selectedTab = tab;
+        },
+
+        submitData(name,desc,link){
+            const newResource = {
+                 id:new Date().toISOString(),
+                 title:name,
+                 desc:desc,
+                 link:link,
+             }
+
+             this.storedResource.unshift(newResource);
+           
+             this.selectedTab = 'learning-resources'
+        },
+
+        removeResource(resId){
+            
+            const index = this.storedResource.findIndex(res => res.id === resId);
+           this.storedResource.splice(index,1)
+           
         }
     },
     
